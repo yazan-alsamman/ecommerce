@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "617695725963",
+    "project_id": "flutterfirebase-67fe8",
+    "storage_bucket": "flutterfirebase-67fe8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617695725963:android:2d191c11fe48bec0fe478e",
+        "android_client_info": {
+          "package_name": "com.example.tataboq_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617695725963-6arcnv5dogb8mqurkqkmreom2foff80v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tataboq_app",
+            "certificate_hash": "472d7ee206856a3ee17177fcb6426481cf0fda96"
+          }
+        },
+        {
+          "client_id": "617695725963-0r5p1ni8f5r3jgtuno8e90l8p7s5hdnu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4a_NtAlj_yU8MHjgVSKifi_NC0pXssWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617695725963-0r5p1ni8f5r3jgtuno8e90l8p7s5hdnu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,23 @@
+import 'package:tataboq_app/core/class/crud.dart';
+import 'package:tataboq_app/linkapi.dart';
+
+class VerifyCodeSignUpData {
+  Crud crud;
+
+  VerifyCodeSignUpData(this.crud);
+
+  postData(String email, String verifycode) async {
+    var response = await crud.postData(AppLink.verifycodesignup, {
+      "email": email,
+      "verifycode": verifycode,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
+
+  reSendData(String email) async {
+    var response = await crud.postData(AppLink.resend, {
+      "email": email,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
+}
