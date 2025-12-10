@@ -26,7 +26,7 @@ class ResetPassword extends StatelessWidget {
           "52".tr,
           style: Theme.of(context)
               .textTheme
-              .headline1!
+              .displayLarge!
               .copyWith(color: AppColor.grey),
         ),
       ),

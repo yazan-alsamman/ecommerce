@@ -1,5 +1,7 @@
 class AppLink {
-  static const String server = "http://192.168.45.130:8081/ecommerce";
+  //static const String server = "http://localhost:8081/ecommerce";
+  static const String server = "http://192.168.98.130:8081/ecommerce";
+  //static const String server = "http://169.254.123.209:8081/ecommerce";
   static const String test = "$server/test.php";
 //Images
   static const String imagestatic = "$server/upload";
@@ -38,4 +40,29 @@ class AppLink {
   static const String cartadd = "$server/cart/add.php";
   static const String cartdelete = "$server/cart/delete.php";
   static const String cartgetcountitem = "$server/cart/getcountitems.php";
+
+  //adress
+  static const String adressView = "$server/adress/view.php";
+  static const String adressAdd = "$server/adress/add.php";
+  static const String adressEdit = "$server/adress/edit.php";
+  static const String adressdelete = "$server/adress/delete.php";
+
+  //coupon
+  static const String checkcoupon = "$server/coupon/checkcoupon.php";
+
+  //checkout
+  static const String checkout = "$server/orders/checkout.php";
+  static const String pendingOrders = "$server/orders/pending.php";
+  static const String archivedOrders = "$server/orders/archive.php";
+  static const String ordersdetails = "$server/orders/details.php";
+  static const String ordersdelete = "$server/orders/delete.php";
+
+  //notification
+  static const String saveDevice = "$server/register-device.php";
+
+  //offers
+  static const String offers = "$server/offers.php";
+
+//rating
+  static const String rating = "$server/rating.php";
 }

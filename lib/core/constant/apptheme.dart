@@ -1,23 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:tataboq_app/core/constant/color.dart';
 
 ThemeData themeEnglish = ThemeData(
   fontFamily: "PlayfairDisplay",
+  appBarTheme: AppBarTheme(
+    centerTitle: T,
+    iconTheme: const IconThemeData(
+      color: AppColor.primaryColor,
+    ),
+    titleTextStyle: const TextStyle(
+        color: AppColor.primaryColor,
+        fontWeight: FontWeight.bold,
+        fontFamily: "Cairo",
+        fontSize: 25),
+    backgroundColor: Colors.grey[50],
+  ),
+  floatingActionButtonTheme:
+      FloatingActionButtonThemeData(backgroundColor: AppColor.primaryColor),
   textTheme: const TextTheme(
-    headline1: TextStyle(
+    displayLarge: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 20,
     ),
-    headline2: TextStyle(
+    displayMedium: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 26,
     ),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
         height: 2,
         color: AppColor.grey,
         fontWeight: FontWeight.w400,
         fontSize: 18),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
         height: 2,
         color: AppColor.grey,
         //fontWeight: FontWeight.w400,
@@ -28,21 +43,20 @@ ThemeData themeEnglish = ThemeData(
 ThemeData themeArabic = ThemeData(
   fontFamily: "Cairo",
   textTheme: const TextTheme(
-        
-    headline1: TextStyle(
+    displayLarge: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 20,
     ),
-    headline2: TextStyle(
+    displayMedium: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 26,
     ),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
         height: 2,
         color: AppColor.grey,
         fontWeight: FontWeight.w400,
         fontSize: 18),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
         height: 2,
         color: AppColor.grey,
         //fontWeight: FontWeight.w400,
@@ -53,20 +67,20 @@ ThemeData themeArabic = ThemeData(
 ThemeData themeFrench = ThemeData(
   fontFamily: "Open_Sans",
   textTheme: const TextTheme(
-    headline1: TextStyle(
+    displayLarge: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 20,
     ),
-    headline2: TextStyle(
+    displayMedium: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 26,
     ),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
         height: 2,
         color: AppColor.grey,
         fontWeight: FontWeight.w400,
         fontSize: 18),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
         height: 2,
         color: AppColor.grey,
         //fontWeight: FontWeight.w400,

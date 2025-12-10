@@ -5,6 +5,9 @@ import 'package:get/get.dart';
 import 'package:tataboq_app/controller/settings_controller.dart';
 import 'package:tataboq_app/core/constant/color.dart';
 import 'package:tataboq_app/core/constant/imageasset.dart';
+import 'package:tataboq_app/core/constant/routes.dart';
+import 'package:tataboq_app/view/local%20notification/localnotification_services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -51,30 +54,52 @@ class Settings extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  // ListTile(
+                  //   onTap: () {},
+                  //   title: Text("Disable Notifications"),
+                  //   trailing: Switch(
+                  //     onChanged: (val) {},
+                  //     value: true,
+                  //     activeColor: AppColor.primaryColor,
+                  //   ),
+                  // ),
+                  Divider(),
                   ListTile(
-                    onTap: () {},
-                    title: Text("Disable Notifications"),
-                    trailing: Switch(
-                      onChanged: (val) {},
-                      value: true,
-                      activeColor: AppColor.primaryColor,
-                    ),
+                    onTap: () {
+                      Get.toNamed(AppRoute.orderspending);
+                    },
+                    title: Text("orders"),
+                    trailing: Icon(Icons.local_shipping_outlined),
                   ),
                   Divider(),
                   ListTile(
-                    onTap: () {},
-                    title: Text("Change Adress"),
+                    onTap: () {
+                      Get.toNamed(AppRoute.ordersarchived);
+                    },
+                    title: Text("Archived orders"),
+                    trailing: Icon(Icons.card_travel_outlined),
+                  ),
+                  Divider(),
+                  ListTile(
+                    onTap: () {
+                      Get.toNamed(AppRoute.adressview);
+                    },
+                    title: Text("Adress"),
                     trailing: Icon(Icons.location_on),
                   ),
                   Divider(),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      // Get.toNamed(AppRoute.notification);
+                    },
                     title: Text("About us"),
                     trailing: Icon(Icons.help),
                   ),
                   Divider(),
                   ListTile(
-                    onTap: () {},
+                    onTap: () async {
+                      await launchUrl(Uri.parse("tel:+963936862035"));
+                    },
                     title: Text("Contact us"),
                     trailing: Icon(Icons.phone),
                   ),

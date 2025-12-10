@@ -3,6 +3,8 @@
 *.log
 *.pyc
 *.swp
+*.swo
+*~
 .DS_Store
 .atom/
 .buildlog/
@@ -15,6 +17,7 @@ migrate_working_dir/
 *.ipr
 *.iws
 .idea/
+*.iml
 
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
@@ -27,9 +30,11 @@ migrate_working_dir/
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
+.packages
 .pub-cache/
 .pub/
 /build/
+*.lock
 
 # Symbolication related
 app.*.symbols
@@ -41,3 +46,33 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Android related
+/android/local.properties
+/android/app/google-services.json
+/android/key.properties
+*.keystore
+*.jks
+
+# iOS related
+/ios/Flutter/Flutter.framework
+/ios/Flutter/Flutter.podspec
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/ephemeral/
+/ios/Flutter/app.flx
+/ios/Flutter/app.zip
+/ios/Flutter/flutter_assets/
+/ios/Flutter/flutter_export_environment.sh
+/ios/ServiceDefinitions.json
+/ios/Runner/GeneratedPluginRegistrant.*
+/ios/Pods/
+/ios/.symlinks/
+/ios/Flutter/.last_build_id
+/ios/Runner/GoogleService-Info.plist
+
+# Coverage
+coverage/
+*.lcov
+
+# Exceptions to above rules.
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages

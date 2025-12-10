@@ -26,43 +26,48 @@ class ListItemsHome extends GetView<HomeControllerImp> {
   }
 }
 
-class ItemsHome extends StatelessWidget {
+class ItemsHome extends GetView<HomeControllerImp> {
   final ItemsModel itemsModel;
   const ItemsHome({super.key, required this.itemsModel});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-          margin: EdgeInsets.symmetric(horizontal: 10),
-          child: Image.network(
-            "${AppLink.imageitems}/${itemsModel.itemImage}",
-            height: 100,
-            width: 150,
-            fit: BoxFit.fill,
+    return InkWell(
+      onTap: () {
+        controller.goToPageProductDetails(itemsModel);
+      },
+      child: Stack(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            child: Image.network(
+              "${AppLink.imageitems}/${itemsModel.itemImage}",
+              height: 100,
+              width: 150,
+              fit: BoxFit.fill,
+            ),
           ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            color: AppColor.black.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(20),
+          Container(
+            decoration: BoxDecoration(
+              color: AppColor.black.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            height: 120,
+            width: 170,
           ),
-          height: 120,
-          width: 170,
-        ),
-        Positioned(
-            left: 6,
-            child: Text(
-              "${itemsModel.itemName}",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-              ),
-            ))
-      ],
+          Positioned(
+              left: 6,
+              child: Text(
+                "${itemsModel.itemName}",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
+              ))
+        ],
+      ),
     );
   }
 }

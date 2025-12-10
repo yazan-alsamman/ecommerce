@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:tataboq_app/controller/cart_controller.dart';
 import 'package:tataboq_app/core/class/handlingdata_view.dart';
-import 'package:tataboq_app/view/widget/cart/appbarcart.dart';
+import 'package:tataboq_app/core/constant/color.dart';
 import 'package:tataboq_app/view/widget/cart/custom_bottom_navigation_bar_cart.dart';
 import 'package:tataboq_app/view/widget/cart/customitemscartlist.dart';
 import 'package:tataboq_app/view/widget/cart/topcardcart.dart';
@@ -16,11 +17,23 @@ class Cart extends StatelessWidget {
   Widget build(BuildContext context) {
     CartController cartController = Get.put(CartController());
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: AppColor.primaryColor),
+        backgroundColor: Colors.grey[50],
+        title: Text(
+          "My Cart",
+        ),
+      ),
       bottomNavigationBar: GetBuilder<CartController>(
         builder: (controller) => BottomNavigationBarCart(
+          shipping: "10",
+          controllercoupon: controller.controllercoupon!,
+          onApplyCoupon: () {
+            controller.checkCoupon();
+          },
           price: "${cartController.priceorder}\$",
-          shipping: "200\$",
-          totalPrice: "300\$",
+          discount: "${controller.discountCoupon}%",
+          totalPrice: "${controller.getTotalPrice()}\$",
         ),
       ),
       body: GetBuilder<CartController>(
@@ -28,9 +41,6 @@ class Cart extends StatelessWidget {
               statusRequest: controller.statusRequest,
               widget: ListView(
                 children: [
-                  TopAppBarCart(
-                    title: "My Cart",
-                  ),
                   SizedBox(
                     height: 10,
                   ),
@@ -45,14 +55,14 @@ class Cart extends StatelessWidget {
                         ...List.generate(
                           cartController.data.length,
                           (index) => CustomItemsCartList(
-                            onAdd: () async{
-                             await cartController.add(cartController
+                            onAdd: () async {
+                              await cartController.add(cartController
                                   .data[index].itemId!
                                   .toString());
                               cartController.refreshPage();
                             },
-                            onRemove: ()async {
-                             await cartController.delete(cartController
+                            onRemove: () async {
+                              await cartController.delete(cartController
                                   .data[index].itemId!
                                   .toString());
                               cartController.refreshPage();

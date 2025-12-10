@@ -15,6 +15,19 @@ class AppRoute {
   static const String myfavorite = "/myfavorite";
   static const String setting = "/setting";
   static const String cart = "/cart";
+  //adress
+  static const String adressview = "/adressview";
+  static const String adressadd = "/adressadd";
+  static const String adressaddtwo = "/adressadddetails";
+  //orders
+  static const String checkOut = "/checkout";
+  static const String orderspending = "/orderspending";
+  static const String ordersarchived = "/ordersarchived";
 
+  static const String notification = "/notification";
+  static const String orderdetails = "/orderdetails";
+  static const String orderdeletedSuccssefully = "/orderdeletedSuccssefully";
+///offers
+ // static const String offers = "/offers";
 
 }

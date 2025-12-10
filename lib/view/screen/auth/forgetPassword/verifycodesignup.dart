@@ -24,7 +24,7 @@ class VerifyCodeSignUp extends StatelessWidget {
           "43".tr,
           style: Theme.of(context)
               .textTheme
-              .headline1!
+              .displayLarge!
               .copyWith(color: AppColor.grey),
         ),
       ),

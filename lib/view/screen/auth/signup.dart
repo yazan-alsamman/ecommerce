@@ -29,7 +29,7 @@ class SignUp extends StatelessWidget {
           "9".tr,
           style: Theme.of(context)
               .textTheme
-              .headline1!
+              .displayLarge!
               .copyWith(color: AppColor.grey),
         ),
       ),

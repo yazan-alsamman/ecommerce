@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tataboq_app/controller/items_controller.dart';
@@ -11,20 +9,27 @@ class ListCategoriesItem extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     ItemsControllerImp controller = Get.put(ItemsControllerImp());
+
     return SizedBox(
-      height: 100,
+      height: screenHeight * 0.12, // Responsive height
       child: ListView.separated(
         separatorBuilder: (context, index) => SizedBox(
-          width: 10,
+          width: screenWidth * 0.03, // Responsive spacing
         ),
         itemCount: controller.categories.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Categories(
-              i: index,
-              categoriesModel:
-                  Categoriesmodel.fromJson(controller.categories[index]));
+            i: index,
+            categoriesModel:
+                Categoriesmodel.fromJson(controller.categories[index]),
+            screenWidth: screenWidth, // Pass screen width for dynamic sizing
+          );
         },
       ),
     );
@@ -34,33 +39,51 @@ class ListCategoriesItem extends GetView<ItemsControllerImp> {
 class Categories extends GetView<ItemsControllerImp> {
   final Categoriesmodel categoriesModel;
   final int? i;
-  const Categories({super.key, required this.i, required this.categoriesModel});
+  final double screenWidth; // Add screen width as a parameter
+
+  const Categories({
+    super.key,
+    required this.i,
+    required this.categoriesModel,
+    required this.screenWidth,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // controller.goToItems(
-        //   controller.categories,i!
-        // );
-        controller.changeCat(i!, categoriesModel.categorieId.toString());
+        Get.find<ItemsControllerImp>().changeCat(
+          i!,
+          categoriesModel.categorieId.toString(),
+        );
       },
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           GetBuilder<ItemsControllerImp>(
             builder: (controller) => Container(
-              padding: EdgeInsets.only(right: 10, left: 10, bottom: 5),
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.03, // Responsive padding
+                vertical: screenWidth * 0.015,
+              ),
               decoration: controller.selectedcat == i
                   ? BoxDecoration(
                       border: Border(
-                        bottom:
-                            BorderSide(width: 3, color: AppColor.primaryColor),
+                        bottom: BorderSide(
+                          width: 2.5, // Responsive border width
+                          color: AppColor.primaryColor,
+                        ),
                       ),
                     )
                   : null,
               child: Text(
                 "${categoriesModel.cetegorieName}",
-                style: TextStyle(fontSize: 20, color: AppColor.grey2),
+                style: TextStyle(
+                  fontSize: screenWidth * 0.045, // Responsive font size
+                  color: controller.selectedcat == i
+                      ? AppColor.primaryColor // Highlight selected category
+                      : AppColor.grey2,
+                ),
               ),
             ),
           ),

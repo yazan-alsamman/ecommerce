@@ -18,9 +18,12 @@ class HomeControllerImp extends HomeController {
   String? username;
   String? id;
   String? lang;
+  String titleHomeCart = "";
+  String bodyHomeCart = "";
+  String deliveryTime = "";
   HomeData homeData = HomeData(Get.find());
 
-  //List data = [];
+  List settingdata = [];
   List categories = [];
   List items = [];
 
@@ -48,6 +51,11 @@ class HomeControllerImp extends HomeController {
       if (response['status'] == "success") {
         categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
+        settingdata.addAll(response['setting']['data']);
+        titleHomeCart = settingdata[0]["setting_titleone"];
+        bodyHomeCart = settingdata[0]["setting_bodyhome"];
+        deliveryTime = settingdata[0]['setting_deliverytime'].toString();
+        myservices.sharedPreferences.setString("deliverytime", deliveryTime);
       } else {
         statusRequest = StatusRequest.failure;
       }

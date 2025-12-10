@@ -3,6 +3,11 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:tataboq_app/core/constant/routes.dart';
 import 'package:tataboq_app/core/middleWare/mymiddleware.dart';
+
+import 'package:tataboq_app/view/adress/add.dart';
+import 'package:tataboq_app/view/adress/adddetails.dart';
+import 'package:tataboq_app/view/adress/view.dart';
+import 'package:tataboq_app/view/notification/notification.dart';
 import 'package:tataboq_app/view/screen/auth/forgetPassword/forgetpassword.dart';
 import 'package:tataboq_app/view/screen/auth/forgetPassword/success_resetpassword.dart';
 import 'package:tataboq_app/view/screen/auth/forgetPassword/verifycodesignup.dart';
@@ -12,12 +17,17 @@ import 'package:tataboq_app/view/screen/auth/signup.dart';
 import 'package:tataboq_app/view/screen/auth/successSignUp.dart';
 import 'package:tataboq_app/view/screen/auth/forgetPassword/veifycode.dart';
 import 'package:tataboq_app/view/screen/cart.dart';
+import 'package:tataboq_app/view/screen/checkout.dart';
 import 'package:tataboq_app/view/screen/homescreen.dart';
 import 'package:tataboq_app/view/screen/items.dart';
 import 'package:tataboq_app/view/screen/language.dart';
 import 'package:tataboq_app/view/screen/myfavorite.dart';
+import 'package:tataboq_app/view/screen/offers.dart';
 import 'package:tataboq_app/view/screen/onboarding.dart';
 import 'package:get/get.dart';
+import 'package:tataboq_app/view/screen/orders/archive.dart';
+import 'package:tataboq_app/view/screen/orders/details.dart';
+import 'package:tataboq_app/view/screen/orders/pending.dart';
 import 'package:tataboq_app/view/screen/productdetails.dart';
 import 'package:tataboq_app/view/screen/settings.dart';
 
@@ -44,5 +54,18 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.productDetails, page: () => const ProductDetails()),
   GetPage(name: AppRoute.myfavorite, page: () => const MyFavorite()),
   GetPage(name: AppRoute.cart, page: () => const Cart()),
+//adress
+  GetPage(name: AppRoute.adressview, page: () => const AdressView()),
+  GetPage(name: AppRoute.adressadd, page: () => const AdressAdd()),
+  GetPage(name: AppRoute.adressaddtwo, page: () => const AdressAddDetails()),
+  //orders
+  GetPage(name: AppRoute.checkOut, page: () => const CheckOut()),
+  GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
+  GetPage(
+      name: AppRoute.ordersarchived, page: () => const OrdersArchivedView()),
 
+  //notification
+  GetPage(name: AppRoute.orderdetails, page: () => const OrderDetails()),
+
+  //GetPage(name: AppRoute.offers, page: () => const OffersView()),
 ];

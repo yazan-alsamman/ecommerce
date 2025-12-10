@@ -10,6 +10,10 @@ import 'package:tataboq_app/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize notifications
+  //await initializeNotifications();
+  WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
   runApp(const MyApp());
 }

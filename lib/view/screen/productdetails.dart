@@ -51,7 +51,7 @@ class ProductDetails extends StatelessWidget {
                       "${controller.itemsModel.itemName}",
                       style: Theme.of(context)
                           .textTheme
-                          .headline1!
+                          .displayLarge!
                           .copyWith(color: AppColor.fourthColor),
                     ),
                     SizedBox(
@@ -71,7 +71,7 @@ class ProductDetails extends StatelessWidget {
                       height: 10,
                     ),
                     Text("${controller.itemsModel.itemDesc}",
-                        style: Theme.of(context).textTheme.bodyText1!),
+                        style: Theme.of(context).textTheme.bodyLarge!),
                     SizedBox(
                       height: 10,
                     ),
@@ -79,7 +79,7 @@ class ProductDetails extends StatelessWidget {
                       "color",
                       style: Theme.of(context)
                           .textTheme
-                          .headline1!
+                          .displayLarge!
                           .copyWith(color: AppColor.fourthColor),
                     ),
                     SizedBox(

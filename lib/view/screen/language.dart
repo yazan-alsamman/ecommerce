@@ -16,8 +16,8 @@ class Language extends GetView<LocaleController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "1".tr,
-              style: Theme.of(context).textTheme.headline1,
+              "choose your prefered Language",
+              style: Theme.of(context).textTheme.displayLarge,
             ),
             const SizedBox(
               height: 20,

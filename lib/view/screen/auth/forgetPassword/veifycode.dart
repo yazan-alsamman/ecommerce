@@ -14,7 +14,7 @@ class VerifyCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     Get.put(VerifyCodeControllerImp());
+    Get.put(VerifyCodeControllerImp());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.backgroundcolor,
@@ -24,7 +24,7 @@ class VerifyCode extends StatelessWidget {
           "43".tr,
           style: Theme.of(context)
               .textTheme
-              .headline1!
+              .displayLarge!
               .copyWith(color: AppColor.grey),
         ),
       ),

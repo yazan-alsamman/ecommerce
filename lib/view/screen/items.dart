@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tataboq_app/controller/favorite_controller.dart';
@@ -16,56 +15,63 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   ItemsControllerImp controller= Get.put(ItemsControllerImp());
+    ItemsControllerImp controller = Get.put(ItemsControllerImp());
     FavoriteController controllerFav = Get.put(FavoriteController());
 
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(15),
-        child: ListView(
-          children: [
-            CustomAppBar(
-              mycontroller: controller.search!,
-              onPressedIconFavorite: () {
-                Get.toNamed(AppRoute.myfavorite);
-              },
-              titleappbar: "Find Product",
-              //onPressedIcon: () {},
-              onPressedSearch: () {
-                controller.onSearchItems();
-              },
-              onChanged: (val) {
-                controller.checkSearch(val);
-              },
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ListCategoriesItem(),
-            GetBuilder<ItemsControllerImp>(
-              builder: (controller) => HandlingDataView(
-                statusRequest: controller.statusRequest,
-                widget:!controller.isSearch? GridView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: controller.data.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, childAspectRatio: 0.7),
-                  itemBuilder: (BuildContext context, index) {
-                    controllerFav
-                            .isFavorite[controller.data[index]['item_id']] =
-                        controller.data[index]['favorite'].toString();
-                    return CustomListItems(
-                        itemsModel:
-                            ItemsModel.fromJson(controller.data[index]));
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final double screenWidth = constraints.maxWidth;
+          final double screenHeight = constraints.maxHeight;
+
+          return Container(
+            padding: EdgeInsets.all(screenWidth * 0.04), // Responsive padding
+            child: ListView(
+              children: [
+                CustomAppBar(
+                  mycontroller: controller.search!,
+                  onPressedIconFavorite: () {
+                    Get.toNamed(AppRoute.myfavorite);
                   },
-                ):ListItemsSearch(
-                      listdataModel: controller.listdata,
-                    ),
-              ),
+                  titleappbar: "Find Product",
+                  onPressedSearch: () {
+                    controller.onSearchItems();
+                  },
+                  onChanged: (val) {
+                    controller.checkSearch(val);
+                  },
+                ),
+                SizedBox(height: screenHeight * 0.02), // Responsive spacing
+                const ListCategoriesItem(),
+                GetBuilder<ItemsControllerImp>(
+                  builder: (controller) => HandlingDataView(
+                    statusRequest: controller.statusRequest,
+                    widget: !controller.isSearch
+                        ? GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: controller.data.length,
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: screenWidth > 600 ? 3 : 2, // Adjust items per row based on screen width
+                              childAspectRatio: screenWidth > 600 ? 0.8 : 0.7, // Adjust aspect ratio
+                              crossAxisSpacing: screenWidth * 0.02, // Responsive spacing
+                              mainAxisSpacing: screenHeight * 0.02, // Responsive spacing
+                            ),
+                            itemBuilder: (BuildContext context, index) {
+                              controllerFav.isFavorite[controller.data[index]['item_id']] =
+                                  controller.data[index]['favorite'].toString();
+                              return CustomListItems(
+                                itemsModel: ItemsModel.fromJson(controller.data[index]),
+                              );
+                            },
+                          )
+                        : ListItemsSearch(listdataModel: controller.listdata),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

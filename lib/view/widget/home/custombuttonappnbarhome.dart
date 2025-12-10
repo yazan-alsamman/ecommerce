@@ -10,7 +10,7 @@ class CustomButtonAppBarHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenControllerImp>(
       builder: (controller) => BottomAppBar(
-        height: 50,
+        height: MediaQuery.of(context).size.height * 0.07, 
         shape: const CircularNotchedRectangle(),
         notchMargin: 10,
         child: Row(
@@ -21,13 +21,15 @@ class CustomButtonAppBarHome extends StatelessWidget {
                 int i = index > 2 ? index - 1 : index;
                 return index == 2
                     ? const Spacer()
-                    : CustomButtonAppBar(
-                        textbutton: controller.bottomappbar[i]['title'],
-                        icondata: controller.bottomappbar[i]['icon'],
-                        onPressed: () {
-                          controller.changePage(i);
-                        },
-                        active: controller.currentpage == i ? true : false,
+                    : Expanded(
+                        child: CustomButtonAppBar(
+                          textbutton: controller.bottomappbar[i]['title'],
+                          icondata: controller.bottomappbar[i]['icon'],
+                          onPressed: () {
+                            controller.changePage(i);
+                          },
+                          active: controller.currentpage == i ? true : false,
+                        ),
                       );
               }),
             ),

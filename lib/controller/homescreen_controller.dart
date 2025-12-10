@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:tataboq_app/view/screen/home.dart';
+import 'package:tataboq_app/view/screen/offers.dart';
 import 'package:tataboq_app/view/screen/settings.dart';
 
 abstract class HomeScreenController extends GetxController {
@@ -22,14 +22,7 @@ class HomeScreenControllerImp extends HomeScreenController {
         )
       ],
     ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(
-          child: Text("profile"),
-        )
-      ],
-    ),
+    OffersView(),
     Settings(),
   ];
   List bottomappbar = [
@@ -42,8 +35,8 @@ class HomeScreenControllerImp extends HomeScreenController {
       "icon": Icons.notification_add_outlined,
     },
     {
-      "title": "Profile",
-      "icon": Icons.person_pin_sharp,
+      "title": "offers",
+      "icon": Icons.local_offer_sharp,
     },
     {
       "title": "Settings",
